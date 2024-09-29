@@ -28,8 +28,6 @@ class TbControl(Node):
         #    msg.linear.x = 0.0
         # else:
         #    msg.linear.x = 0.25
-        # self.pub.publish(msg)
-        # self.get_logger().info('Publishing: "%s"' % msg.linear.x)
         ####################################################################################
 
         # SCENARIO 2 
