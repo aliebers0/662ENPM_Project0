@@ -6,7 +6,7 @@ import rclpy
 from rclpy.node import Node
 from geometry_msgs.msg import Twist
 
-# publisher for the velocity
+# publisher for the open-loop control
 class TbControl(Node):
     def __init__(self):
         super().__init__('tb_control_pub')
@@ -22,8 +22,7 @@ class TbControl(Node):
         self.i += 1
 
         # SCENARIO 1
-        # x = v*t + x0
-        # 4s at constant velocity +0.25, ending coordinate should be (x0 + 1.0, 0)
+        # constant velocity
 
         # if(self.i > 20):
         #    msg.linear.x = 0.0
@@ -34,7 +33,7 @@ class TbControl(Node):
         ####################################################################################
 
         # SCENARIO 2 
-        # constant +acceleration -> constant velocity -> constant -acceleration
+        # constant +acceleration to constant velocity to constant -acceleration
     
         if(self.i < 11):
             # +acceleration for 2s
@@ -54,10 +53,8 @@ def main(args=None):
     print('Hi from tb_control.')
 
     rclpy.init(args=args)
-
     tb_control = TbControl()
     rclpy.spin(tb_control)
-
     tb_control.destroy_node()
     rcply.shutdown()
 
