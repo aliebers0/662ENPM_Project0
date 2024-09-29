@@ -35,9 +35,8 @@ class TbControl(Node):
 
         # SCENARIO 2 
         # constant +acceleration -> constant velocity -> constant -acceleration
-        # (0,0) to ()
     
-        if(self.i < 10):
+        if(self.i < 11):
             # +acceleration for 2s
             self.vel_now += self.a*self.timer_int
         elif(self.i >= 20 and self.i < 30):
